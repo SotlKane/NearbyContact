@@ -6,18 +6,22 @@
     "typescript": "^5.5.4"
   },
   "scripts": {
-    "client": "cd client && npm run dev",
-    "server": "cd server && npm run start"
+    "dev:client": "cd client && npm run dev",
+    "dev:server": "cd server && npm run start",
+    "host:client": "bun --bun run --cwd client host",
+    "dev": "concurrently \"bun run dev:client\" \"bun run dev:server\"",
+    "host": "concurrently \"bun run host:client\" \"bun run dev:server\""
   },
   "dependencies": {
-    "@sveltejs/adapter-auto": "^3.2.4",
+    "@sveltejs/adapter-auto": "^3.3.1",
     "@types/express-session": "^1.18.0",
     "@types/passport": "^1.0.16",
     "@types/passport-local": "^1.0.38",
     "cas": "^0.0.3",
     "cas-authentication": "^0.0.8",
+    "concurrently": "^9.0.1",
     "crypto-js": "^4.2.0",
-    "express-session": "^1.18.0",
+    "express-session": "^1.18.1",
     "passport-local": "^1.0.0",
     "passport-session": "^1.0.2"
   }
